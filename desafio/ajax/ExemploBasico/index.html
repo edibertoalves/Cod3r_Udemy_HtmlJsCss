@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+<body>
+
+    <div class="container mb-5"> Recuperar CEP
+        <form name="cepForm" class="form-group">
+            <div class="form-group" method="get">
+                <label for="inputcep">CEP:</label>
+                <input type="text" class="form-control mb-3" id="inputcep" name="inputcep">
+                <button class="btn btn-secondary">Consultar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <form name="usuarioForm" class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control mb-3" id="nome" name="nome">
+            <label for="sobrenome">Sobrenome:</label>
+            <input type="text" class="form-control mb-3" id="sobrenome" name="sobrenome">
+
+            <!-- <button class="btn btn-primary">Adicionar</button> -->
+            <input type="submit" class="btn btn-primary" value="Adicionar">
+            
+        </form>
+    </div>
+
+    <script>
+        /******************* POST com XMLHTTPRQUEST **************/
+        document.usuarioForm.onsubmit = e => {
+            e.preventDefault();
+            
+            var form = document.usuarioForm;
+            
+            var data = new FormData(form);
+            data.append('nome', form[0].value);
+            data.append('sobrenome', form[1].value);
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open("post", 'https://jsonplaceholder.typicode.com/posts/', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onload = e => (console.log(xhr.responseText));
+            xhr.send(data);
+        }
+
+
+        /*********************************************************/
+
+        /******************** GET com XMLHTTPREQUEST ************/
+        // var cep = document.getElementById('inputcep');
+        // cep.addEventListener('blur', (e) => {
+        //     //console.log(cep.value);
+        //     // function retornaCep(){
+
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.responseType = "json";
+
+        //     xhr.onreadystatechange = () => {
+        //         if (xhr.readyState == 4 && xhr.status == 200) {
+        //             window.alert(xhr.response.logradouro);
+        //         }
+        //     }
+
+        //     // xhr.open("GET", "https://app.der.sp.gov.br/viadigital/api/logradouros/04542906", true);
+        //     // xhr.open("GET", "https://travessias.dersa.sp.gov.br/TravessiaService/", true);
+        //     // xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+        //     xhr.open("GET", 'https://viacep.com.br/ws/' + cep.value + '/json/', true);
+        //     xhr.send();
+
+        //     // }
+        // })
+        /*************************************************************/
+
+
+        // https://www.geeksforgeeks.org/get-and-post-method-using-fetch-api/
+        /********************* GET COM FETCH *************************/
+        // document.cepForm.onsubmit = e => {
+        //     e.preventDefault();
+
+        //     const cep = document.getElementById('inputcep').value;
+
+        //     fetch('https://viacep.com.br/ws/' + cep + '/json/', {
+
+        //         method: 'get'
+
+        //     })
+        //         .then(resp => resp.json())
+        //         .then(result => alert(result.logradouro));
+
+        // }
+        /*************************************************************/
+
+        /******************* POST COM FETCH***************************/
+        // document.usuarioForm.onsubmit = e => {
+        //     e.preventDefault();
+
+        //     fetch('https://jsonplaceholder.typicode.com/posts/', {
+
+        //         method: 'post',
+
+        //         body: JSON.stringify({
+        //             nome: document.getElementById('nome').value,
+        //             sobrenome: document.getElementById('sobrenome').value
+        //         }),
+        //         headers: {
+        //             "Content-type": "application/json; charset=UTF-8"
+        //         }
+        //     })
+        //     .then(response => response.json())
+        //     .then(json => console.log(json));
+        // }
+
+        /*************************************************************/
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

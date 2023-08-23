@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        fetch('dados/estados.json')
+        .then(result => result.json())
+        .then(estados => {
+            // const lista = estados.map(i => `<li>${i.nome}</li>`);
+
+            const itens = estados.reduce((html, uf) =>  html + `<li>${uf.nome}</li>`);
+
+            document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>` );
+            
+            // console.log(lista);
+            
+
+        })
+        
+    </script>
+</body>

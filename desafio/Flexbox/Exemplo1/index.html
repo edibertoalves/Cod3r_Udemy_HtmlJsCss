@@ -1,0 +1,75 @@
+<!--https://desenvolvimentoparaweb.com/css/flexbox/#section_flex-direction -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 5px;
+            padding: 15px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            /* flex-flow: row wrap; */
+            flex-wrap: wrap;
+        }
+
+        /* .container {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            flex-wrap: wrap;
+        } */
+
+        .primeiro {
+            height: 50px;
+            width: 150px;
+            background-color: darkgrey;
+            border-radius: 5px;
+        }
+
+        .segundo {
+            height: 50px;
+            width: 150px;
+            background-color: coral;
+            border-radius: 5px;
+        }
+
+        .terceiro {
+            height: 50px;
+            width: 150px;
+            background-color: greenyellow;
+            border-radius: 5px;
+        }
+
+        .quarto {
+            height: 50px;
+            width: 150px;
+            background-color: lightblue;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="primeiro">primeiro
+        </div>
+        <div class="segundo">segundo
+        </div>
+        <div class="terceiro">terceiro
+        </div>
+        <div class="quarto">quarto
+        </div>
+    </div>
+
+</body>
+
+</html>

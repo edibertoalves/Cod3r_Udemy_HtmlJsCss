@@ -1,0 +1,1 @@
+exports.MensagemHi = 'Hi';

@@ -1,0 +1,20 @@
+{
+  "name": "basico-webpack-live-reload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode=development",
+    "start": "webpack-dev-server",
+    "prd": "webpack --mode=production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.56.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.3.0",
+    "html-webpack-plugin": "^5.3.2"
+  }
+}

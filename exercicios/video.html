@@ -1,0 +1,60 @@
+<!-- https://www.w3schools.com/tags/ref_av_dom.asp -->
+
+<body>
+    <video id="videoChico" src="video/chico anysio.mp4" width="512" height="384"></video>
+    <br>
+    <button id="btnPlayPause">Play</button> <h2 id="valor">0</h2>
+    <br>
+    <div class="progresso">
+        <div id="minMax"></div>
+        <!-- <progress id="p" min=0 max=100 ></progress> -->
+    </div>
+
+    <script>
+        var video = document.getElementById('videoChico');
+        var playPause = document.getElementById('btnPlayPause');
+        var minMax = document.getElementById('minMax');
+        var valor = document.getElementById('valor');
+
+        playPause.addEventListener('click', (e) => {
+            if (video.paused == true) {
+                video.play();
+                playPause.innerHTML = 'Pause';               
+
+            } else {
+                video.pause();
+                playPause.innerHTML = 'Play';
+            }
+        });
+
+        
+
+    </script>
+
+    <style>
+        button { 
+            margin-top: 10px;
+        }
+
+        .progresso {
+            height: 20px;
+            width: 500px;
+            border: solid 1px grey;
+            margin-top: 10px;
+
+        }
+
+        /* .progresso > div { */
+        #minMax {
+            background-color: red;
+            color: black;
+            height: 100%;
+            text-align: right;
+            font-size: 14px;
+            width: 0%;
+        }
+
+
+    </style>
+
+</body>
